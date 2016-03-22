@@ -1,0 +1,147 @@
+<p style="text-align:justify;">En este post veremos algunos elementos básicos del lenguaje R que pueden leerse en <code>src/include/Rinternals.h</code>. Son aspectos, claro, que el usuario de R usualmente considera desde otro punto de vista. En particular, no tiene necesidad de conocer el lenguaje C para usar el R. Sin embargo, puede que estudiar las fuentes en C de R sea útil para comprender mejor el R mismo. El punto de partida será entonces el siguiente párrafo de <a href="https://cran.r-project.org/doc/manuals/r-release/R-ints.html">R internals</a>:</p>
+<p style="padding-left:30px;text-align:justify;">"Aquello que los usuarios de R piensan como variables u objetos son símbolos que están ligados a un valor. El valor puede pensarse como SEXP (un puntero), o la estructura a la que apunta, un SEXPREC (y hay formas alternativas usadas para vectores, a saber VECSXP que apuntan a VECTOR_SEXPREC). Así, las bases fundamentales en que se asientan los objetos de R son llamados comúnmente nodos, queriendo decir SEXPREC o VECTOR_SEXPRECs". (R internals <a href="https://cran.r-project.org/doc/manuals/r-release/R-ints.html#SEXPs">1.1</a>).</p>
+<p style="text-align:justify;">SEXPREC significa "Simple EXPression RECord" (<a href="http://mazamascience.com/WorkingWithData/?p=1099">ver acá</a>). Veamos un poco de qué se tratan estas "estructuras". Las líneas 254 a 271 del mencionado archivo son las siguientes:</p>
+
+<pre style="text-align:justify;"><code>#define SEXPREC_HEADER \
+ struct sxpinfo_struct sxpinfo; \
+ struct SEXPREC *attrib; \
+ struct SEXPREC *gengc_next_node, *gengc_prev_node</code></pre>
+<pre style="text-align:justify;">/* The standard node structure consists of a header followed by the
+ node data. */
+ typedef struct SEXPREC {
+ SEXPREC_HEADER;
+ union {
+ struct primsxp_struct primsxp;
+ struct symsxp_struct symsxp;
+ struct listsxp_struct listsxp;
+ struct envsxp_struct envsxp;
+ struct closxp_struct closxp;
+ struct promsxp_struct promsxp;
+ } u;
+ } SEXPREC, *SEXP;</pre>
+<p style="text-align:justify;">Vemos entonces que un SEXPREC es un struct tiene por miembros:</p>
+<p style="text-align:justify;">1. Un sxpinfo_struct llamado sxpinfo, que veremos más abajo.
+2. Un puntero a otro SEXPREC llamado *attrib.
+3. Dos punteros más, que apuntan a los nodos previo y próximo.
+4. Una union, que almacena alguno de los structs que siguientes: primsxp_struct, symsxp_struct, listsxp_struct, envsxp_struct, closxp_struct, promsxp_struct.</p>
+<p style="text-align:justify;">Tratemos de deternernos un poco en estas estructuras, comenzando por sxpinfo.</p>
+<p style="text-align:justify;">Entre las líneas 185 y 199 de <code>Rinternals.h</code> encontramos:</p>
+
+<pre style="text-align:justify;"><code>struct sxpinfo_struct {
+ SEXPTYPE type      :  5;/* ==&gt; (FUNSXP == 99) %% 2^5 == 3 == CLOSXP
+ * -&gt; warning: `type' is narrower than values
+ *              of its type
+ * when SEXPTYPE was an enum */
+ unsigned int obj   :  1;
+ unsigned int named :  2;
+ unsigned int gp    : 16;
+ unsigned int mark  :  1;
+ unsigned int debug :  1;
+ unsigned int trace :  1;  /* functions and memory tracing */
+ unsigned int spare :  1;  /* currently unused */
+ unsigned int gcgen :  1;  /* old generation number */
+ unsigned int gccls :  3;  /* node class */
+ }; /*            Tot: 32 */
+ </code></pre>
+<p style="text-align:justify;">Encontramos 10 miembros, 9 unsigned ints y un SEXPTYPE, los cuales ocupan 32 bits.</p>
+<p style="text-align:justify;">Leyendo el código encontramos que en algún momento SEXPTYPE fue un enum, pero que ya no es así. Lo que se lee ahora es un typedef en la línea 102  que define SEXPTYPE como un  unsigned int. Y luego se definen estos tipos, a saber:</p>
+
+<pre style="text-align:justify;"><code>
+ #define NILSXP         0      /* nil = NULL */
+ #define SYMSXP         1      /* symbols */
+ #define LISTSXP        2      /* lists of dotted pairs */
+ #define CLOSXP         3      /* closures */
+ #define ENVSXP         4      /* environments */
+ #define PROMSXP        5      /* promises: [un]evaluated closure arguments */
+ #define LANGSXP        6      /* language constructs (special lists) */
+ #define SPECIALSXP     7      /* special forms */
+ #define BUILTINSXP     8      /* builtin non-special forms */
+ #define CHARSXP        9      /* "scalar" string type (internal only)*/
+ #define LGLSXP        10      /* logical vectors */
+ /* 11 and 12 were factors and ordered factors in the 1990s */
+ #define INTSXP        13      /* integer vectors */
+ #define REALSXP       14      /* real variables */
+ #define CPLXSXP       15      /* complex variables */
+ #define STRSXP        16      /* string vectors */
+ #define DOTSXP        17      /* dot-dot-dot object */
+ #define ANYSXP        18      /* make "any" args work.
+ Used in specifying types for symbol
+ registration to mean anything is okay  */
+ #define VECSXP        19      /* generic vectors */
+ #define EXPRSXP       20      /* expressions vectors */
+ #define BCODESXP    21    /* byte code */
+ #define EXTPTRSXP   22    /* external pointer */
+ #define WEAKREFSXP  23    /* weak reference */
+ #define RAWSXP      24    /* raw bytes */
+ #define S4SXP       25    /* S4, non-vector */</code></pre>
+<pre style="text-align:justify;">/* used for detecting PROTECT issues in memory.c */
+ #define NEWSXP      30    /* fresh node creaed in new page */
+ #define FREESXP     31    /* node released by GC */
+ #define FUNSXP      99    /* Closure or Builtin or Special */</pre>
+<p style="text-align:justify;">De este modo, un SEXPREC tiene alguno de los tipos precedentes SEXPTYPE, que el usuario de R conoce bien, al menos algunos de ellos, veamos unos ejemplos (nota :la función typedef() nos dice el tipo, pero el paquete pryr nos da el typo expresado en los términos que estamos viendo acá).</p>
+<p style="text-align:justify;">NILSXP es NULL, como dice en el comentario.</p>
+<p style="text-align:justify;"><code>SYMSXP</code> almacena símbolos, es decir nombres. Por ejemplo: <code>typeof(quote(sum))</code> es <code>"symbol"</code> (<code>SYMSXP</code>) pues <code>sum</code> es el nombre de una conocida función.</p>
+<code>LISTSXP</code>, pese a lo que sufiere su nombre, no son las listas que se forman en R con <code>list()</code>, sino que son "pairlists". En R se encuantran en los argumentos de una función (ver: <a href="http://adv-r.had.co.nz/Expressions.html#pairlists">http://adv-r.had.co.nz/Expressions.html#pairlists</a>).
+<p style="text-align:justify;"><code>CLOSXP</code>. Closures se refiere a las funciones de R.</p>
+<p style="text-align:justify;"><code>ENVSXP </code>son enviroments (ejemplo: <code>typeof(.GlobalEnv)</code>).</p>
+<p style="text-align:justify;"><code>PROMSXP</code>. Como dice el comentario, los promises son argumentos sin evaluar de una función.</p>
+<p style="text-align:justify;"><code>LANGSXP</code>. Ejemplo <code>typename(quote(1+1)</code>).</p>
+<p style="text-align:justify;"><code>LGLSXP </code>es tipo lógico, ejemplo <code>typeof(TRUE)</code>.</p>
+<p style="text-align:justify;"><code>INTSXP</code> es un número (o vector) entero, <code>typeof(1L)</code>.</p>
+<p style="text-align:justify;"><code>REALSXP </code>es un número (o vector) real (double), <code>typeof(1.1)</code>.</p>
+<p style="text-align:justify;"><code>CPLXSXP</code>: número (o vector) complejo, <code>typeof(1i)</code>.</p>
+<p style="text-align:justify;"><code>STRSXP</code> es el <code>typeof()</code> "character".</p>
+<p style="text-align:justify;"><code>DOTSXP</code> es el objeto <code>...</code>, como dice el comentario.</p>
+<p style="text-align:justify;"><code>ANYSXP</code> no es un tipo particular de objeto. Se usa, por ejemplo, en una función en C que pueda tomar como argumento cualquier tipo.</p>
+<p style="text-align:justify;"><code>VECSXP</code>. Estas son las listas de R (ej; <code>x=list();typename(x)</code>).</p>
+<p style="text-align:justify;">El miembro attrib del struct SEXPREC es un puntero a un SEXPREC. Es el valor que devuelve la función <code>attributes()</code>. Los dos punteros siguientes, <code>gengc_next_node</code> y <code>gengc_prev_node</code>, apuntan, como su nombre los indica, a los nodos previo y siguiente.</p>
+<p style="text-align:justify;">Luego del SEXPREC_HEADER vemos la union u, que nos indica que el SEXPREC puede ser alguno de los siguientes: <code>primsxp_struct</code>, <code>symsxp_struct</code>, <code>listsxp_struct</code>, <code>envsxp_struct</code>, <code>closxp_struct</code>, <code>promsxp_struct</code>, los cuales corresponden a algunos de los tipos que mencionamos más arriba. Estos structs están definidos en <code>Rinternals.h</code> del siguiente modo:</p>
+
+<pre style="text-align:justify;"><code>struct primsxp_struct {
+ int offset;
+ };</code></pre>
+<pre style="text-align:justify;">struct symsxp_struct {
+ struct SEXPREC *pname;
+ struct SEXPREC *value;
+ struct SEXPREC *internal;
+ };</pre>
+<pre style="text-align:justify;">struct listsxp_struct {
+ struct SEXPREC *carval;
+ struct SEXPREC *cdrval;
+ struct SEXPREC *tagval;
+ };</pre>
+<pre style="text-align:justify;">struct envsxp_struct {
+ struct SEXPREC *frame;
+ struct SEXPREC *enclos;
+ struct SEXPREC *hashtab;
+ };</pre>
+<pre style="text-align:justify;">struct closxp_struct {
+ struct SEXPREC *formals;
+ struct SEXPREC *body;
+ struct SEXPREC *env;
+ };</pre>
+<pre style="text-align:justify;">struct promsxp_struct {
+ struct SEXPREC *value;
+ struct SEXPREC *expr;
+ struct SEXPREC *env;
+ };</pre>
+<p style="text-align:justify;">Por ejemplo, el tipo <code>listsxp_struc</code> contiene tres miembros: un puntero a un SEXPREC llamado <code>carval</code> (al CAR), otro, llamado <code>cdrvar</code>, que apunta al CDR y finalmente el llamado <code>tagval</code>.</p>
+
+
+<hr />
+<p style="text-align:justify;">REFERENCIAS:</p>
+<p style="text-align:justify;">R Language Definition, R Core Team.
+<a href="http://cran.r-project.org/doc/manuals/r-release/R-lang.html">http://cran.r-project.org/doc/manuals/r-release/R-lang.html</a>
+---
+R Internals, R Develompent Core Team.
+<a href="http://cran.r-project.org/doc/manuals/r-release/R-ints.html">http://cran.r-project.org/doc/manuals/r-release/R-ints.html</a>
+---
+Fuentes R versión 3.2.1, World-Famous Astronaut
+---
+<a href="http://biostat.mc.vanderbilt.edu/wiki/Main/RInternals">http://biostat.mc.vanderbilt.edu/wiki/Main/RInternals</a>
+---
+Advanced R de Hadley Wickham
+<a href="http://adv-r.had.co.nz/"> http://adv-r.had.co.nz/</a></p>
+<p style="text-align:justify;">--</p>
+<p style="text-align:justify;">Working With Data. Using R .Call("hello").</p>
+<p style="text-align:justify;"><a href="http://mazamascience.com/WorkingWithData/?p=1099">http://mazamascience.com/WorkingWithData/?p=1099</a></p>

@@ -1,0 +1,55 @@
+<div>
+En <a href="http://especulacionpura.blogspot.com/2011/03/bertrand-russell-sobre-la-denotacion.html"><span style="font-style: italic;">On Denoting</span></a>, Russell explica qué son lo que llama <i>frases denotativas</i>. Da ejemplos de ellas: un hombre, algunos hombres, cada hombre, todos los hombres, el actual rey de Inglaterra, el actual rey de Francia, el centro de masa del sistema solar durante el primer instante del siglo XX, la revolución de la tierra alrededor del sol, la revolución del sol alrededor de la tierra.
+
+Las agrupa en tres casos:
+
+<span style="font-weight: bold;">Sin referencia</span>: <i>el actual rey de Francia</i>
+<span style="font-weight: bold;">Con una referencia determinada</span>: <i>el centro de masa del sistema solar durante...</i>
+<span style="font-weight: bold;">Con una referencia ambigua</span>: <i>un hombre</i>
+
+Frases como estas pueden ser encontradas dentro de oraciones. Dado que considera como las <i>frases denotativas primitivas</i> a ‘todo’, ‘nada’ y ‘algo’, pasa a analizarlas esquemáticamente. Según Russell, la noción “C(x) es siempre verdadero” (correspondiente a ‘todo’, es decir «todo <i>x</i> es C») es fundamental e indefinible, las otras nociones se definen a través de ella.
+
+
+<b>C(todo) </b>= “C(x) es siempre verdadero”
+<b>C(nada) </b>= “ ‘C(x) es falso’ es siempre verdadero”
+<b>C(algo) </b>= “Es falso que ‘C(x) es falso’ es siempre verdadero”
+
+También define la noción “C(un hombre)” mediante el ejemplo:
+
+“Conocí a un hombre”, donde C(x) corresponde a la propiedad <i>“x fue conocido por mí”</i>, de donde C(un hombre) equivaldría a:
+“ ‘conocí a x, y x es un hombre’ no siempre es falso”.
+
+También se definen las siguientes expresiones (de acuerdo a lo indicado <i>supra</i>):
+
+<b>C(todos los hombres) </b>= “ ‘si x es humano, entonces C(x) es verdadero’ es siempre verdadero”
+<b>C(ningún hombre) </b>= “ ‘si x es humano, entonces C(x) es falso’ es siempre verdadero”
+<b>C(algunos hombres) </b>= <b>C(un hombre) </b>= “Es falso que ‘C(x) y x es humano’ es siempre falso”
+
+<b>C(cualquier hombre) </b>= C(todos los hombres)
+
+Luego están los casos con un artículo definido tal como <span style="font-style: italic;">el</span> o <span style="font-style: italic;">la</span>. Un ejemplo puede ser: “El padre de Carlos II fue ejecutado”, que puede interpretarse como “C(el padre de Carlos II)” (donde C(x) = x fue ejecutado), lo cual será:
+
+“No es siempre falso de x que x es el padre de Carlos II y que x fue ejecutado y que ‘si y es el padre de Carlos II, y es idéntico a x’ es siempre verdadero de y”
+
+Para simplificar todo esto que puede parecer confuso, presentamos a continuación su representación formal. </div>
+
+C(todo) = ∀x Cx
+C(nada) = ∀x ¬Cx
+C(algo) = ¬∀x ¬Cx
+<div>
+</div>
+
+C(todos los hombres) = ∀x (Hx ⊃ Cx)
+C(ningún hombre) = ∀x (Hx ⊃ ¬Cx)
+C(un hombre) = ¬∀x  ¬(Cx ∧ Hx)
+
+C(el padre de Carlos II) = ¬∀x ¬[Px ∧ Cx ∧ ∀y (Py ⊃ y = x)
+<div>
+</div>
+
+<a href="http://1.bp.blogspot.com/-1sTUNoKtvIE/TY_ZsSN2hdI/AAAAAAAAABs/cFSRJh-XUsM/s1600/Russell2.png"></a><a href="http://3.bp.blogspot.com/-rBQnwRLR9pA/TefDrIs1pkI/AAAAAAAAABI/qwQrICccb8c/s1600/Russell%2BDescripciones.png"></a>
+Lo precedente permite hacer una reducción de todas las proposiciones donde tienen lugar frases denotativas a unas donde no. Es decir, en lugar de expresiones que denoten objetos del mundo como sujetos de oraciones, tendremos oraciones que denoten o bien la verdad o bien la falsedad.
+
+Según Strawson, esta concepción era aún ampliamente aceptada entre los lógicos cuando escribió de ella una crítica en <i>On referring</i>.
+
+(<i><a href="http://reinespekulation.blogspot.com.ar/2012/07/denoting-phrases-and-definite_14.html">Leer la versión en inglés</a></i>)

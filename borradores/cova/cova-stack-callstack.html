@@ -1,0 +1,87 @@
+<p style="text-align: justify;">Stack en inglés significa 'pila', en el sentido de un conjunto de cosas apiladas. Tratándose de stack en el sentido de estructura de datos, una pila se parece a una pila (en aquél otro sentido) en que así como ocurre con ésta, se accede a sus elementos obteniendo siempre en primer lugar el último que se encimó. De este modo, se trata de un caso en el que "los últimos serán los primeros".</p>
+<p style="text-align: justify;">Por ejemplo, utilizando en lenguaje C podemos hacer lo siguiente. En primer lugar, asignamos espacio para una pila de hasta 25 letras:</p>
+
+<pre>unsigned char pila[25];</pre>
+<p style="text-align: justify;">Para que sea una pila, entonces necesitamos contar con dos operaciones, INSERTAR y BORRAR, que llamaremos como es habitual: push y pop. Usaremos además top para acceder al último elemento agregado, y las proposiciones vacia y llena para saber si esta o no vacía o llena.</p>
+
+<pre>#define VACIA (top == 0 ? 1 : 0)
+#define LLENA (top == 25 ? 1 : 0)</pre>
+<pre>unsigned char pila[25];
+unsigned int top = 0;</pre>
+<pre>void push(char letra)
+ {
+ if (LLENA) printf("stack overflow\n");
+ else pila[++top] = letra;
+ }</pre>
+<pre>char pop()
+ {
+ if (VACIA) printf("underflow\n");
+ else return pila[top--];
+ }</pre>
+<p style="text-align: justify;">Claro que hay muchas formas de hacer una pila. Podríamos haber usado un puntero.</p>
+
+<pre>#define VACIA (top == pila ? 1 : 0)
+#define LLENA (top == (pila + 24) ? 1 : 0)</pre>
+<pre>unsigned char pila[25];
+unsigned char* top = pila;</pre>
+<pre>void push(char letra)
+ {
+ if (LLENA) printf("stack overflow\n");
+ else *(++top) = letra;
+ }</pre>
+<pre>char pop()
+ {
+ if (VACIA) printf("underflow\n");
+ else return *(top--);
+ }
+</pre>
+También puede usarse una lista enlazada, como se muestra en el siguiente ejemplo.
+<pre>#include &lt;stdlib.h&gt;</pre>
+<pre>#define VACIA (top == NULL)</pre>
+<pre>typedef struct nodo nodo;</pre>
+<pre>struct nodo {
+ char data;
+ nodo* next;
+ };</pre>
+<pre>nodo* top = NULL; // Al inicio, la lista está vacía.</pre>
+<pre>nodo* nuevo()
+ {
+ nodo *tmp = malloc(sizeof(nodo));
+ if(!tmp) {
+ printf("Error de memoria\n");
+ return NULL;
+ }
+ return tmp;
+ }</pre>
+<pre>void push(char letra)
+ {
+ nodo *tmp = nuevo();
+ tmp-&gt;data = letra;
+ tmp-&gt;next = top;
+ top = tmp;
+ }</pre>
+<pre>char pop()
+ {
+ char ret;
+ if (top == NULL) {
+ printf("underflow\n");
+ return;
+ }
+ else {
+ nodo* tmp = top;
+ ret = top-&gt;data;
+ top = top-&gt;next;
+ free(tmp);
+ return ret;
+ }
+ }</pre>
+<p style="text-align: justify;">Ahora pasamos a cosiderar la llamada call stack, "pila de llamadas", que es un área de la memoria que utiliza un programa (y que se diferencia del heap que se utilizó en el último ejemplo). Se llama así porque justamente funciona como un pila: el último elemento que se coloca en ella es el primero que se saca. Por ejemplo, cuando se llama una función en C, se inserta en la pila, primero, la direccón de la instrucción que realizó la llamada. Se hace lugar para tipo de dato que devuelve la función (el 'return type' que se especifica al definirla, antes de escribir su nombre). Luego se agregan a la pila los argumentos y todas las variables locales de la función, etc. Pero luego, al terminar la función, el valor que devuelve se copia al lugar que se había reservado para ello. Además se 'pierden' los datos que se habían insertado luego del mismo (es por eso que no es posible acceder a las variables locales una vez terminada la función). Luego el valor devuelto por la función es sacado de la pila y asignado (o, si no lo es, se pierde también). Si main() va a llamar otra función, tiene lugar un proceso semejante, etc.</p>
+<p style="text-align: justify;">En el tercero de los ejemplos precedentes, hemos usado malloc() y free() para los nodos hechos con la función nuevo(), asignando para ellos memoria del heap. En este caso, la asignación es manejada directamente y por eso usamos estas funciones provistas por stdlib.h.</p>
+
+
+<hr />
+<p style="text-align: justify;">Referencias
+<a href="http://ee.hawaii.edu/~tep/EE160/Book/chap14/subsection2.1.1.8.html">http://ee.hawaii.edu/~tep/EE160/Book/chap14/subsection2.1.1.8.html</a>
+<a href="http://www.learncpp.com/cpp-tutorial/79-the-stack-and-the-heap/">http://www.learncpp.com/cpp-tutorial/79-the-stack-and-the-heap/</a></p>
+<p style="text-align: justify;"><a href="https://en.wikipedia.org/wiki/C_dynamic_memory_allocation">https://en.wikipedia.org/wiki/C_dynamic_memory_allocation</a></p>
+<p style="text-align: justify;"><a href="http://gribblelab.org/CBootcamp/7_Memory_Stack_vs_Heap.html">http://gribblelab.org/CBootcamp/7_Memory_Stack_vs_Heap.html</a></p>

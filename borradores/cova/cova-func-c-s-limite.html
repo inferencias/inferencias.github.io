@@ -1,0 +1,30 @@
+<p style="text-align:justify;">Tras <a href="https://covarianzas.wordpress.com/2014/11/27/definiciones-sobre-limites/">haber considerado</a>, cuando menos algo, de qué manera puede definirse el hecho de que una función tienda a un límite, no parece mala idea detenerse en pensar qué sería entonces lo contrario, a saber, el que no lo haga.</p>
+<p style="text-align:justify;">Y una forma de obtener dicho concepto es, sencillamente, tomar el de una función que sí tiene límite, y anteponerle la negación. La razón de que puede procederse así surge de las mismas leyes de la lógica, de un principio que ya los griegos manejaban y que los latinos llamaban <i>tertium non datur</i>. Se trata del tercero excluído, el que establece que una afirmación es verdadera o es falsa, no puede no cumplirse ni una ni la otra, de lo cual se sigue, por otra parte, que de no ser verdadera, entonces debe ser falsa, y vice versa. Seguramente a muchos lectores parecerá un principio demasiado evidente y quizá imprescindible, si bien se han desarrollado lógicas que lo rechazan. De todas formas no nos vamos a ocupar mucho más con esto por el momento, si no a considerar qué queda de la definicón de límite, una vez antepuesta a ella el símbolo de la negación.</p>
+<p style="text-align:justify;">Es importante prestar atención a qué es lo que ocurre con los cuantificadores de la fórmula cuando esto ocurre. Es decir, si una fórmula se afirma respecto de "todo $latex \epsilon$, por ejemplo, negarla significa afirmar que existe algún $latex \epsilon$, al menos, para el cual no se cumple. O sea:</p>
+<p style="text-align:justify;">$latex
+\neg \forall x \Phi(x) \qquad \equiv \qquad \exists x \neg \Phi(x)
+$</p>
+<p style="text-align:justify;">donde $latex \Phi$ hace las veces de una fórmula cualquiera.</p>
+<p style="text-align:justify;">Por otra parte, negar una implicación no consiste en afirmar una implicación con el mismo antecedente y que implique lo contrario, sino en afirmar el antecedente y la negación del consecuente a la vez.</p>
+<p style="text-align:justify;">De este modo, una función $latex f(x)$ que <i>no tiende</i> al límite $latex l$ al tender $latex x$ a $latex c$ puede definirse así:</p>
+<p style="text-align:justify;">$latex
+\exists \epsilon&gt;0 \quad \forall \delta&gt;0 \quad \exists x \qquad 0&lt;|x-c|&lt;\delta \qquad \wedge \qquad |f(x)-l|\ge \epsilon
+$</p>
+<p style="text-align:justify;">Nótese como se han invertido los cuantificadores, en lugar de la implicación apareció una conjunción y la diferencia entre $latex f(x)$ y $latex l$ ha de ser mayor o igual ahora que $latex \epsilon$.</p>
+<p style="text-align:justify;">En la fórmula precedente se afirma que una función $latex f(x)$ no tiende al límite $latex l$ al tender $latex x$ a $latex c$. Desde luego que si esto se cumple para todo $latex c$ de su dominio y para todo $latex l$, entonces $latex f(x)$ no tiene límite finito en todo su dominio.</p>
+<p style="text-align:justify;">Ahora entonces vamos a considerar la siguiente cuestión: ¿puede una función, que tiene límite $latex l$ en el punto $latex c$ tener además otro límite $latex m$, distinto de $latex l$?</p>
+<p style="text-align:justify;">La respuesta a esta pregunta es que no. La demostración puede hacerse del modo siguiente.</p>
+<p style="text-align:justify;">Primero, formulemos lo que queremos probar de un modo más preciso. Esto puede hacer así: si una función tiene un límite $latex l$ y un límite $latex m$, entonces $latex l$ y $latex m$ son en realidad dos formas de denotar un mismo número. Formalmente:</p>
+<p style="text-align:justify;">De $latex \lim_{x\to c}f(x)=l$ y $latex \lim_{x\to c}f(x)=m$ se sigue $latex l=m$</p>
+<p style="text-align:justify;">El procedimiento que utilizaremos recibe el nombre de <i>reductio ad absurdum</i> y consiste en suponer lo que queremos refutar para llegar a un contradicción, con la cual habremos probado lo que queríamos probar. Suponemos, entonces:</p>
+<p style="text-align:justify;">$latex \lim_{x\to c}f(x)=l$ , $latex \lim_{x\to c}f(x)=m $ y además $latex l\neq m$</p>
+<p style="text-align:justify;">Dada la definición de límite, existen números llamémoslos $latex \delta_1$ y $latex \delta_2 $ tales que si $latex 0&lt;|x-c|&lt;\delta $, donde $latex \delta $ es el menor de ambos (o sea $latex \delta = min\{\delta_1, \delta_2\} $ ) entonces se cumple tabto que $latex |f(x)-l|&lt;\epsilon $ como que $latex |f(x)-m|&lt;\epsilon $, esto para cualquier $latex \epsilon $</p>
+<p style="text-align:justify;">En particular, esto ha de cumplirse para $latex \epsilon = \theta $ con $latex \theta = \frac{|m-l|}{2} $</p>
+<p style="text-align:justify;">Por otra parte, es claro que</p>
+<p style="text-align:justify;">(*) $latex |m-l| = |m - f(x) + f(x) - l| \leq |m - f(x)| + |f(x) - l| $</p>
+<p style="text-align:justify;">Pero como</p>
+<p style="text-align:justify;">$latex |m - f(x)| &lt; \theta$ y $latex |f(x) - l| &lt; \theta$ tenemos que:</p>
+<p style="text-align:justify;">$latex |m - f(x)| + |f(x) - l| &lt; |m-l|$</p>
+<p style="text-align:justify;">De lo cual debemos concluir, junto con (*), que:</p>
+<p style="text-align:justify;">$latex |m-l| &lt; |m-l|$</p>
+<p style="text-align:justify;">lo cual es contradictorio y, por lo tanto, alguna de nuestras premisas era falsa. Así, o bien $latex m $ no era límite de $latex f(x) $ cuando $latex x \to c $ , o bien $latex l $ no era límite de $latex f(x) $ cuando $latex x \to c $ o bien $latex l \neq m $ , que es lo que se quería probar.</p>

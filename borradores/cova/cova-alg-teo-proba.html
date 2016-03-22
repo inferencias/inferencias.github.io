@@ -1,0 +1,71 @@
+<p style="text-align:justify;">En esta página figurarán algunos teoremas de la teoría de la probabilidad, que derivaremos de sus <a href="https://covarianzas.wordpress.com/2014/11/11/espacio-de-probabilidad/">axiomas</a>.</p>
+<p style="text-align:justify;">Recordemos sin embargo antes que nada lo que los axiomas afirman.</p>
+<p style="text-align:justify;"><i><b>Axioma I</b>: a cada evento aleatorio $latex A \in \mathbf{A}$ corresponde cierta probabilidad, es decir, cierto número $latex P(A)$ comprendido en $latex [0,1]$</i> (Recuerdese que $latex \mathbf{A} $ es el álgebra de eventos de nuestro espacio probabilístico).</p>
+<p style="text-align:justify;"><i><b>Axioma II</b>: si la ocurrencia de un evento es segura, entonces su probabilidad equivale a 1</i>.</p>
+<p style="text-align:justify;"><i><b>Axioma III</b>: si dos eventos son mutuamente excluyentes (es decir, no es posible que los dos se den a la vez) entonces la probabilidad del evento definido como "cualquiera de los dos" es igual a la suma de sus probabilidades</i>.</p>
+<p style="text-align:justify;">Vale la pena ahora afirmar un corolario del axioma afirmado en tercer lugar. La idea es extender lo que éste afirma respecto de dos eventos a una secuencia de eventos aplicandolo repetidamente.</p>
+<p style="text-align:justify;">En concreto, el corolario afirma que: dada una secuencia numerable $latex \{A_k\}$ de eventos todos mutuamente excluyentes un respecto de cada uno de los otros, entonces la probabilidad de la unión de tales eventos que componen la secuencia es igual a la suma de sus probabilidades. De otra forma:</p>
+<p style="text-align:justify;">Dada la secuencia $latex \{A_k\}$ tal que:</p>
+<p style="text-align:justify;">$latex \forall i, j \ (i \neq j) \to A_i \cap A_j = \emptyset$</p>
+<p style="text-align:justify;">con k = 1, 2, 3, ..., n</p>
+<p style="text-align:justify;">$latex P(\bigcup_k A_k = \sum_kP(A_k)$</p>
+<p style="text-align:justify;">Esto se deduce así. Por hipótesis, $latex A_1$ y $latex A_2$ pertenecen a $latex \mathbf{A}$, siendo la probabilidad de su union igual a la suma de la de ambas (por el axioma 3). Esta union, asimismo, pertenece a $latex A$ (esto se sigue de la segunda propiedad).</p>
+<p style="text-align:justify;">Luego repetimos el mismo razonamiento, pero aplicado a la union obtenida en el paso anterior: $latex (A_1 \cup A_2) \cup A_3$ pertenece a $latex A$ y tiene una probabilidad igual a la suma de $latex A_1$ , $latex A_2$ y $latex A_3$ . De este modo llegamos (dado que n es finito) a la union $latex A_1 \cup A_2 \cup ... \cup A_n$ , que pertenece a $latex \mathbf{A}$ y su probabilidad es igual a la suma de los $latex A_1, ..., A_n$ , que es lo que se queria probar.</p>
+<p style="text-align:justify;">Ahora bien, el lector debe haber notado la condición impuesta en la premisa de la prueba, a saber, la mutua exclusividad de los eventos considerados, y probablemente, si no lo hizo antes, se haya preguntado ¿qué ocurre si los eventos no son mutamente expluyentes? A esa pregunta viene a responder el teorema que sigue.</p>
+<p style="text-align:justify;">Pero antes notemos lo siguiente. Sean $latex A$ y $latex B$ dos eventos cualesquiera (mutuamente excluyentes o no). Luego, de los axiomas de la teoría de conjuntos se sigue que:</p>
+<p style="text-align:justify;">$latex A \cup B = A \cup (B - A \cap B)$</p>
+<p style="text-align:justify;">y que</p>
+<p style="text-align:justify;">$latex B = (A \cap B) \cup (B - A \cap B)$</p>
+<p style="text-align:justify;">De esto, se siguen las fórmulas:</p>
+<p style="text-align:justify;">$latex P(A \cup B) = P(A) + P(B - A \cap B)$
+,
+$latex P(B) = P(A \cap B) + P(B - A \cap B)$
+y
+$latex P(B - A \cap B) = P(B) - P(A \cap B)$</p>
+<p style="text-align:justify;">De lo cual inmediatamente obtenemos:</p>
+<p style="text-align:justify;"><b>Teorema 1</b>:</p>
+<p style="text-align:justify;">$latex P(A \cup B) = P(A) + P(B) - P(A \cap B)$</p>
+<p style="text-align:justify;">Puede deducirse también aplicándolo repetidamente:</p>
+<p style="text-align:justify;">$latex
+P(\bigcup_{k=1}^{n} A_k) = \sum_{k=1}^{n} P(A_k) - \sum_{k_1, k_2 = 1, k_1 &lt; k_2}^{n} P(A_{k_1} \cap A_{k_2}) + $
+$latex \sum_{k_1,k_2,k_3=1, k_1 &lt; k_2 &lt; k_3}^{n} P(A_{k_1} \cap A_{k_2} \cap A_{k_3}) + ... + (-1)^{n+1} P(A_{k_1} \cap ... \cap A_{k_n})
+$</p>
+<p style="text-align:justify;"><b>Teorema 2</b>:</p>
+<p style="text-align:justify;">$latex P(\emptyset) = 0$</p>
+<p style="text-align:justify;">Claramente, tenemos:</p>
+<p style="text-align:justify;">$latex \Omega \cap \emptyset = \emptyset$</p>
+<p style="text-align:justify;">luego, usando el axioma 2:</p>
+<p style="text-align:justify;">$latex P(\Omega) + P(\emptyset) = 1$</p>
+<p style="text-align:justify;">o sea:</p>
+<p style="text-align:justify;">$latex 1 + P(\emptyset) = 1$</p>
+<p style="text-align:justify;">$latex P(\emptyset) = 0$</p>
+<p style="text-align:justify;"><b>Teorema 3</b>:
+$latex P(A \cup \overline{A}) = 1$</p>
+<p style="text-align:justify;">lo cual se sigue de que $latex A \cup \overline{A} = \Omega$</p>
+<p style="text-align:justify;">Y obviamente tenemos:</p>
+<p style="text-align:justify;">$latex P(A) + P(\overline{A}) = 1$</p>
+<p style="text-align:justify;">aplicando el tercer axioma.</p>
+<p style="text-align:justify;">Ahora veamos un teorema un poco más difícil, pero que es de utilidad:</p>
+<p style="text-align:justify;padding-left:30px;"><b>Teorema 4</b>:</p>
+<p style="text-align:justify;padding-left:30px;">Sea $latex \{A_k\}$ una secuencia de eventos tal que $latex A_1 \supseteq A_2 \supseteq ... \supseteq A_n$, y sea $latex A$ su intersección, es decir $latex A = \bigcap_{k=1}^{n}A_k$ . Luego:</p>
+<p style="text-align:justify;padding-left:30px;">$latex P(A) = \lim_{n \to \infty} P(A_n)$</p>
+<p style="text-align:justify;"><i>Prueba</i>: de las condiciones impuestas a la secuencia $latex {A_k}$ se sigue para cada $latex n$ que:</p>
+<p style="text-align:justify;">$latex A_n = \bigcup_{k=n}^{\infty}(A_k \cap \overline{A}_{k+1}) \cup A$</p>
+<p style="text-align:justify;">Se sigue del <i>teorema 1</i> que:</p>
+<p style="text-align:justify;">(*) $latex P(A_n) = P(\bigcup_{k=n}^{\infty} A_k \cap \overline{A}_{k+1} ) + P(A) - P(A \cap \bigcup_{k=n}^{\infty} A_k \cap \overline{A}_{k+1} ) $</p>
+<p style="text-align:justify;">Notemos que:</p>
+<p style="text-align:justify;">$latex A \cap \bigcup_{k=n}^{\infty}(A_k \cap \overline{A}_{k+1}) = \bigcup_{k=n}^{\infty}A \cap A_k \cap \overline{A}_{k+1}$</p>
+<p style="text-align:justify;">Pero como, para cada $latex k$, el evento $latex A \cap A_k \cap \overline{A}_{k+1}$ es imposible, se sigue, junto al axioma tres que:</p>
+<p style="text-align:justify;">$latex \bigcup_{k=n}^{\infty}A \cap (A_k \cap \overline{A}_{k+1}) = 0$</p>
+<p style="text-align:justify;">Luego, sustituyendo en (*):</p>
+<p style="text-align:justify;">(**) $latex P(A_n) = \sum_{k=n}^{\infty}P(A_k \cap \overline{A}_{k+1}) + P(A) $</p>
+<p style="text-align:justify;">Por otra parte, tenemos que de la serie $latex \sum_{k=1}^{\infty} P(A_k \cap \overline{A}_{k+1}) $ todos sus términos son mayores o iguales a cero, sus sumas parciales nunca suman más que 1 (por los axiomas de la teoría de la probabildad) y que por lo tanto es convergente (<a href="https://covarianzas.wordpress.com/2014/12/09/toda-sucesion-no-decreciente-acotada-converge/">pues constituye una sucesión acotada no decreciente</a>). De esto se sigue que:</p>
+<p style="text-align:justify;">$latex \lim_{n \to \infty} P(A_n \cap \overline{A}_{n+1}) = 0 $</p>
+<p style="text-align:justify;">Así, tenemos que:</p>
+<p style="text-align:justify;">$latex \lim_{n \to \infty} \sum_{k=n}^{\infty} P(A_k \cap A_{k+1}) = 0$</p>
+<p style="text-align:justify;">Por lo tanto, sustituyendo en (**) :</p>
+<p style="text-align:justify;">$latex \lim_{n \to \infty} P(A_n) = P(A) \qquad \qquad \blacksquare $</p>
+<p style="text-align:justify;"><b>Teorema 5</b>.</p>
+<p style="text-align:justify;">Sea $latex \{A_n\}, n = 1, 2, ... $ una secuencia no decreciente de eventos y sea $latex A $ su unión, luego:</p>
+<p style="text-align:justify;">$latex P(A) = \lim_{n \to \infty} P(A_n) $</p>
+<p style="text-align:justify;">Dejaremos la prueba al lector.</p>

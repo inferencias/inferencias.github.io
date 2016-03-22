@@ -1,0 +1,33 @@
+<p style="text-align:justify;">Vamos a mostrar (mediante una notación poco habitual) que el límite de una función identidad en un punto es ese mismo punto, es decir que si $latex f(x) = x $</p>
+<p style="text-align:justify;">$latex lim_{x \to c} f(x) = c$</p>
+<p style="text-align:justify;">O sea:</p>
+<p style="text-align:justify;">$latex lim_{x \to c} x = c$</p>
+<p style="text-align:justify;">Vamos a usar la siguiente notación:</p>
+<p style="text-align:justify;">$latex \mathbf{D} \equiv \qquad (\epsilon &gt; 0) \quad \wedge \quad (\delta &gt; 0) \quad \wedge \quad (0 &lt;|x-c|&lt; \delta)$
+y
+$latex \mathbf{E} \equiv \qquad |f(x)-l|&lt; \epsilon$</p>
+<p style="text-align:justify;">Nótese que las variables $latex x, c$ y $latex \delta$ están libres en $latex D$ y las variables $latex f, x$ y $latex l$ libres en $latex E$. $latex f$ es una variable de función.</p>
+<p style="text-align:justify;">Además, la expresión $latex [a/b]\mathbf{A}$ denotará la formula resultante de sustituir en $latex A$ todas las ocurrencias allí presentes de $latex a$ por $latex b$.</p>
+<p style="text-align:justify;">La prueba es sencilla. Notemos que dado:</p>
+<p style="text-align:justify;">(*) $latex p \to p$</p>
+<p style="text-align:justify;">podemos sustituir $latex p$ por cualquier fórmula bien formada, en particular, obtenemos: $latex D \to D$</p>
+<p style="text-align:justify;">Pero como $latex x = f(x)$ entonces $latex D$ y $latex [f(x)/x][l/c]E$ son la misma fórmula, entonces aplicamos (*) y obtenemos:</p>
+<p style="text-align:justify;">$latex [l/c].\mathbf{D} \to [f(x)/x]\mathbf{E}$</p>
+<p style="text-align:justify;">Esto, por su puesto, vale para todo $latex x$, de modo que</p>
+<p style="text-align:justify;">(**) $latex \forall x [l/c].\mathbf{D} \to \mathbf{E}$</p>
+<p style="text-align:justify;">Aquí también podemos introducir un cuantificator existencial pues la variable $latex \delta$ está libre en (**), y esto vale para todo $latex \epsilon$:</p>
+<p style="text-align:justify;">$latex \forall \epsilon \exists \delta \forall x [l/c].\mathbf{D} \to \mathbf{E}$</p>
+<p style="text-align:justify;">Lo cual equivale, según nuestra notación, a:</p>
+<p style="text-align:justify;">$latex lim_{x \to c} f(x) = c$</p>
+<p style="text-align:justify;">Igualemente sencillo resulta probar que el límite de una constante es esa misma constante. E efecto, tenemos</p>
+<p style="text-align:justify;">$latex c - c = 0$</p>
+<p style="text-align:justify;">así, para todo $latex \epsilon &gt; 0$</p>
+<p style="text-align:justify;">(***) $latex |c - c| &lt; \epsilon$</p>
+<p style="text-align:justify;">Aquí podemos aplicar el axioma lógico</p>
+<p style="text-align:justify;">$latex p \to (q \to p)$</p>
+<p style="text-align:justify;">con el cual es fácil llegar de (***) a:</p>
+<p style="text-align:justify;">$latex \mathbf{D} \to [f(x)/c]\mathbf{E}$</p>
+<p style="text-align:justify;">Solo resta cuantificar de modo análogo a como habíamos hecho en el caso anterior y obtenemos:</p>
+<p style="text-align:justify;">$latex \forall \epsilon \exists \delta \forall x [f(x)/c]. \mathbf{D} \to \mathbf{E}$</p>
+<p style="text-align:justify;">es decir:</p>
+<p style="text-align:justify;">$latex lim_{x \to c} c = c$</p>

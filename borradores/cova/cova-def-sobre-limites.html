@@ -1,0 +1,43 @@
+<p style="text-align:justify;">En esta entrada se incluirán algunas definiciones sobre límites. La definición más común de la expresión "una función tiende a $latex l$ cuando su argumento tiende a $latex c$" puede escribirse así:</p>
+<p style="text-align:justify;">$latex
+\forall \epsilon (\epsilon &gt; 0 \to \exists \delta (\delta &gt; 0 \to (\forall x (0&lt;|x-c|&lt;\delta) \to (|f(x)-l|&lt;\epsilon))))))
+$</p>
+<p style="text-align:justify;">Esta formulación no es la más habitual en los libros de matemática, pero el concepto es el mismo. En general se incluyen definiciones como:</p>
+<p style="text-align:justify;">"Para un $latex \epsilon $ arbitrario positivo, existe en $latex \delta $ también positivo tal que, para todo $latex x$,</p>
+<p style="text-align:justify;">si $latex |x-c|&lt;\delta $, con $latex x \neq c $, entonces "$latex |f(x)-l|&lt;\epsilon$".</p>
+<p style="text-align:justify;">De todas formas, sí existen diferencias al definir distintas clases de límites, pues no es lo mismo una función, por ejemplo, con límite finito, que una que tiende a infinito, ni tampoco se definen igual los límites cuando una función tiende a un número que cuando tiende a infinito. A continuación se muestran algunas definiciones que muestarn claramente estas diferencias.</p>
+<p style="text-align:justify;"><b>Definición 1</b>.
+Función $latex f(x)$ que tiende al límite $latex l$ cuando $latex x$ tiende a $latex a$.
+$latex \lim_{x \to a}f(x) = l \equiv \quad \forall \epsilon &gt; 0 \ \exists \delta &gt; 0 \ \forall x \quad (0&lt;|x-a|&lt; \delta) \ \to \ (|f(x) - l| &lt; \epsilon) $</p>
+<p style="text-align:justify;"><b>Definición 2</b>.
+Función $latex f(x)$ que tiende al límite $latex l$ cuando $latex x$ tiende a $latex \infty$ .
+$latex \lim_{x \to \infty}f(x) = l \qquad \equiv \qquad \forall \epsilon &gt; 0 \ \exists N \ \forall x \quad x &gt; N \quad \to \quad (|f(x) - l| &lt; \epsilon) $</p>
+<p style="text-align:justify;"><b>Definición 3</b>.
+Función $latex f(x)$ que tiende al infinito cuando $latex x$ tiende a $latex a$ .
+$latex \lim_{x \to a}f(x) = \infty \quad \equiv \quad \forall M &gt; 0 \ \exists \delta &gt; 0 \ \forall x \neq a \quad (0&lt;|x-a| M) $</p>
+<p style="text-align:justify;"><b>Definición 4</b>.
+Función $latex f(x)$ infinitesimal cuando $latex x$ tiende a $latex a$ .
+$latex \lim_{x \to a}f(x) = 0 \quad \equiv \quad \forall \epsilon &gt; 0 \ \exists \delta &gt; 0 \ \forall x \quad (0&lt;|x-a| &lt; \delta) \ \to \ (|f(x)| &lt; \epsilon) $</p>
+<p style="text-align:justify;"><b>Definición 5</b>.
+Función $latex f(x)$ infinitesimal cuando $latex x$ tiende a $latex \infty$ .
+$latex \lim_{x \to \infty}f(x) = 0 \qquad \equiv \qquad \forall \epsilon &gt; 0 \ \exists N \ \forall x \quad x &gt; N \quad \to \quad (|f(x)| &lt; \epsilon) $</p>
+<p style="text-align:justify;">A continuación, algunas definiciones relativas a infinitesimales, es decir, funciones que tienen límite igual a 0.</p>
+<p style="text-align:justify;"><b>Definición 6</b>.
+Infinitesimal de orden k respecto de otra.
+Sean $latex f(x)$ y $latex g(x)$ infinitesimales, cuando $latex x \to a$. Luego, si la función:
+$latex \lim_{x \to a}\frac{f(x)}{g(x)^k}=l\neq0\neq\infty $
+entonces, la infinitesimal $latex f(x)$ se llama infinitesimal de orden k respecto de $latex g(x)$.</p>
+<p style="text-align:justify;"><b>Definición 7</b>.
+Infinitesimales equivalentes.
+Sean $latex f(x)$ y $latex g(x)$ infinitesimales, cuando $latex x \to a$. Luego, si la función:
+$latex \lim_{x \to a}\frac{f(x)}{g(x)}=1 $
+entonces, las infinitesimales $latex f(x)$ y $latex g(x)$ se llaman equivalentes.covarianzas/</p>
+<p style="text-align:justify;">Agrego también el caso de las sucesiones que convergen a un número, pues es un caso importante.</p>
+<p style="text-align:justify;"><b>Definición 8</b>.
+Sucesión que converge hacia $latex l$.
+$latex \lim_{x \to \infty} a_n = l \quad \equiv \quad \forall \epsilon &gt; 0 \ \exists N \ \forall x \quad x &gt; N \quad \to \quad (|f(x) - l| &lt; \epsilon) $</p>
+<p style="text-align:justify;">En realidad se trata esta de una caso particular de la segunda definición, dado que una sucesión puede definirse (<a href="https://covarianzas.wordpress.com/bibliografia/">Cf. Spivak</a>) como "una función cuyo dominio es $latex \mathbb{N}$"</p>
+<p style="text-align:justify;">Así, podemos también definir una sucesión sumable diciendo que:</p>
+<p style="text-align:justify;">Sea $latex \{a_n\}$ una sucesión y sea
+$latex s_x = a_1 + ... + a_n $
+Luego, la sucesión $latex \{a_n\}$ es sumable si la sucesión $latex \{s_n\}$ converge. Denotando $latex \lim_{x\to\infty}s_n$ la suma de la sucesión $latex \{a_n\}$</p>

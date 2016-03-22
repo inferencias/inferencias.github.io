@@ -1,0 +1,20 @@
+<p style="text-align:justify;">Mostraremos ahora cómo es que</p>
+<p style="text-align:justify;"><b>TEOREMA</b>
+una sucesión no decreciente y acotada superiormente converge (análogamente se prueba que una no creciente y acotada inferiormente también lo hace).</p>
+<p style="text-align:justify;">Primero definimos:</p>
+<p style="text-align:justify;">Una sucesión $latex \{a_n\} $ es <i>no decreciente</i> si se cumple $latex \forall n . a_{n+1} \geq a_n $ y está <i>acotada superiormente</i> si $latex \exists M \forall n . a_n \leq M $</p>
+<p style="text-align:justify;">Demostración.</p>
+<p style="text-align:justify;">Sea $latex \{a_n\} $ una sucesión no decreciente y acotada. Si llamamos $latex A $ al conjunto que contiene todos los términos de la sucesión, entonces podemos afirmar que $latex A $ es un conjunto acotado. Recurriendo al Axioma del supremo (Cualquier conjunto de números reales acotado superiormente tiene supremo), obtenemos que $latex A $ tiene supremo, es decir, tiene cota superior mínima, es decir:</p>
+<p style="text-align:justify;">$latex \exists x (\forall a \in A) \quad x \geq a \quad \wedge \quad \forall y . y \geq a \to x \leq y $</p>
+<p style="text-align:justify;">Lo cual significa que</p>
+<p style="text-align:justify;">$latex \exists x (\forall n \in \mathbb{N}) \quad x \geq a_n \quad \wedge \quad \forall y . y \geq a_n \to x \leq y $</p>
+<p style="text-align:justify;">Sea $latex \alpha $ la cota superior mínima de $latex A $, y tomemos un $latex \epsilon &gt; 0$.</p>
+<p style="text-align:justify;">Debe existir algún $latex N $ tal que $latex \alpha - a_N &lt; \epsilon $ ya que de otro modo existiría un número $latex \epsilon $ tal que para todo $latex a_n $ sería $latex \alpha - a_N \geq \epsilon$</p>
+<p style="text-align:justify;">Pero de este modo, el número $latex \beta = \alpha - \epsilon $ sería cota superior de $latex A $, pero como $latex \epsilon &gt; 0 $ entonces $latex \alpha - \epsilon &lt; \alpha $ con lo cual $latex \theta $ sería supremo, lo cual contradice nuestra hipótesis de que el supremo era $latex \alpha $</p>
+<p style="text-align:justify;">Asimismo, como $latex \{a_n\} $ es decreciente, tenemos que si $latex n &gt; N $</p>
+<p style="text-align:justify;">$latex a_n \geq a_N $</p>
+<p style="text-align:justify;">Así:</p>
+<p style="text-align:justify;">$latex \alpha - a_n \leq \alpha - a_N &lt; \epsilon $</p>
+<p style="text-align:justify;">lo que equivale a decir que</p>
+<p style="text-align:justify;">$latex \lim_{n \to \infty} a_n = \alpha$</p>
+<p style="text-align:justify;">De modo que la sucesión converge.              $latex \square$</p>
