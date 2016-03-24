@@ -1,45 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Inferencias</title><link href="inferencias.github.io/" rel="alternate"></link><link href="inferencias.github.io/feeds/misc.atom.xml" rel="self"></link><id>inferencias.github.io/</id><updated>2016-03-20T00:00:00-03:00</updated><entry><title>Lógica proposicional</title><link href="inferencias.github.io/logica-proposicional.html" rel="alternate"></link><updated>2016-03-20T00:00:00-03:00</updated><author><name>nsm</name></author><id>tag:,2016-03-20:inferencias.github.io/logica-proposicional.html</id><summary type="html">&lt;!--
-Emailusr: nsanmartin
-Emailser: dc.uba.ar
---&gt;
-
-&lt;p&gt;De todas las afirmaciones que se pueden hacer, algunas valen por que su contenido se refiere a algo que es tal como se lo describe, mientras que otras porque son de tal forma que resultaría absurdo negarlas. Estas últimas son más fundamentales, o básicas, que las primeras. Existe un motivo obvio para esto: ninguna descripción de nada se sostiene si es posible refutarla por sus aspectos meramente formales. Dicho de otr amanera: ninguna afirmación va a ser factible si es en sí misma contradictoria. Y no sólo eso, también podemos decir que no va a servir si no está claro qué sentidos se le puede dar, ni forma parte de algún sistema que permita fundamentarla. Si alguien dice que decir "no llueve, pero está lloviendo" es absurdo es porque ya hay implícito un sistema lógico que permite concluir tal cosa, análogamente a cuando se dice que una fracción de enteros igual a la raíz de dos no es posible.&lt;/p&gt;
-&lt;p&gt;Dado un lenguaje, existe un conjunto de fórmulas que se pueden tomar como no válidas, las llamadas contradicciones. Por otra parte están las tautologías, que básicamente son la negación de las primeras. Y si niego una tautología obtengo una contradicción. Pero exite un conjunto de afirmaciones que no son ni de un tipo ni del otro respecto de las cuales las ciencias formales no pueden decidir. Sin embargo, en ocasiones sí se puede decidir si se utiliza algún modo de ponerla a prueba con experiencias reales, y en tal caso estaríamos en una aplicación del sistema lógico (y matemático, si incluye proposiciones matemáticas), pues las proposiciones que estarían en cuestión seían aquellas que el sistema permite formular y que, además, no pueden ser refutadas por motivos puramente lógicos o matemáticos.&lt;/p&gt;
-&lt;p&gt;Llegado a este punto podemos notar que hay dos enfoques, que consideramos ahora brevemente. Uno de ellos consiste considerar el uso habitual del lenguaje y encontrar los elementos más generales y fundamentales. Dijimos ya que nos importaban las afirmaciones, así que ellas son los elementos básicos. Y notamos que éstas pueden ser tanto verdaderas como falsas. Podemos entonecs llamar proposiciones a estas afirmaciones o aserciones y decir que la lógica se ocupa, en principio, respecto de su significado (o contenido), sólo el hecho de si denota una verdad o o no (aunque más adelante podamos hacer sobra tal base un analisis más pormenorizado). También observamos que las proposiciones pueden combinarse entre sí formando otras proposiciones, las cuales pueden combinar hasta cualquier cantidad de ellas.&lt;/p&gt;
-&lt;p&gt;En resumen, tenemos proposiciones, cuyo significado puede variar entre la verdad y la falsedad, y combinaciones entre ellas que también pueden denotar tanto la verdad como la falsedad. De esta forma obtenemos ciertas funciones que pueden tomas u o más variables y que toman uno de los dos valores verdadero o falso.&lt;/p&gt;
-&lt;p&gt;Habitualmente se llama &lt;em&gt;valores de verdad&lt;/em&gt; al conjunto de la verdad y la falsedad, las cuales se suelen denotar \(V\) y \(F\) respectivamente (aunque pueden usarse como otros como en la lógica trivalente). Así podemos utilizar \(\mathcal{T}\) para denotar el conjunto de los valores de verdad, y el producto cartesiano \(\mathcal{T} \times \dots \times \mathcal{T}\) (donde \(\mathcal{T}\) ocurre \(n\) veces) es representado por \(\mathcal{T}\).&lt;/p&gt;
-&lt;p&gt;Ahora podemos definir las funciones de verdad.&lt;/p&gt;
-&lt;p&gt;DEFINICIÓN (Funciones de verdad)
-Una función \(f: \mathcal{T}^n \to \mathcal{T}\) es una función de verdad.&lt;/p&gt;
-&lt;p&gt;Ejemplo 1. Sea \(\{V,F\}\) el conjunto con los valores \(V\) y \(F\). Entonnces  \(f_N : \{V,F\} \to \{V,F\}\) tal que
-\[
-f_N(p) =
-\begin{cases}
-V, \text{ si } p = F;\\
-F, \text{ si } p = V.\\
-\end{cases}
-\]&lt;/p&gt;
-&lt;p&gt;es la función que se llama &lt;em&gt;negación&lt;/em&gt; y se suele usar:
-\[f_N(p) = \neg p\]&lt;/p&gt;
-&lt;p&gt;Ejemplo 2. Sea \(f_K: \{V,F\}^2 \to \{F,V\}\) tal que
-\[
-f_K(p,q) =
-\begin{cases}
-V, \text{ si } p = q;\\
-F, \text{ en otro caso.}\\
-\end{cases}
-\]&lt;/p&gt;
-&lt;p&gt;Esta función se llama &lt;em&gt;conjunción&lt;/em&gt; y se suele usar:
-\[f_K(p,q) = p \wedge q\]&lt;/p&gt;
-&lt;p&gt;Usualmente se utilizan las llamadas &lt;em&gt;tablas de verdad&lt;/em&gt; para representar dichas funciones. En estas tablas se muestran tres columnas, una con la primer variable, otra con las segundo (otra con la tercera, etc. ...) y otra con la función, mientras que en las filas los valores de verdad asignados (todas las \(2^n\) combinaciones y el valor que la función asigna a cada combinación). (Las tablas de verdad de las funciones más utilizadas pueden consultarse en &lt;a href="https://es.wikipedia.org/wiki/Conectiva_l%C3%B3gica"&gt;wikipedia&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;Ahora es fácil definir, por ejemplo, tautología.&lt;/p&gt;
-&lt;p&gt;DEFINICIÓN (tautología)
-Una tautología (en la lógica bivalente) es una función de verdad \(f:\{V,F\}^n\to\{V,F\}\) tal que para todo valor de \(\mathbf p = (p_1, p_2, \dots, p_n)\), se cumple que
-\(f(\mathbf p) = V\)&lt;/p&gt;
-&lt;p&gt;Ejemplo. La función \(\neg (p \wedge \neg p)\) es una tautología.&lt;/p&gt;
-&lt;p&gt;El otro enfoque consiste en definir una manera de obtener formulas válidas atendiendo sólo a su sintaxis y no a su interpretación. Para esto primero se tiene que definir un lenguaje, que va a consistir en un conjunto de símbolos primitivos (que van a designar las varibales y las funciones o conectivas), símbolos auxiliares (los paréntesis y otros simi8lares) y  reglas de formación de fórmulas que se llamarán "bien formadas". Además se necesita de un conjunto de axiomas, que serán considerados de por sí fórmulas válidas, y reglas de inferencia que permitirán obtener otras fórmulas que también serán considerads válidas y se llamarán teoremas.&lt;/p&gt;
-&lt;p&gt;Existen obviamente muchos sistemas de lógica formal que están compuestos de lenguajes de distinto nivel de expresividad y distinto conjunto de teoremas. Por ejemplo, la lógica proposicional necesariamente será formalizada con un sistema diferente a la lógica de predicados de primer orden (que es una extensión de la otra, que agrega símbolos al lenguaje y axiomas y teoremas) o a la lógica modal. Pero incluso la misma lógica proposicional admite distintos sistemas formales, los cuales deberán por su puesto general los mismos teoremas. Un ejemplo de sistema deductivo encontramos en la deducción natural elaborado por Gentzen.&lt;/p&gt;</summary><category term="lógica"></category><category term="proposicional"></category></entry><entry><title>Inferencias</title><link href="inferencias.github.io/inferencias.html" rel="alternate"></link><updated>2016-03-19T00:00:00-03:00</updated><author><name>nsm</name></author><id>tag:,2016-03-19:inferencias.github.io/inferencias.html</id><summary type="html">&lt;!--
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Inferencias</title><link href="inferencias.github.io/" rel="alternate"></link><link href="inferencias.github.io/feeds/misc.atom.xml" rel="self"></link><id>inferencias.github.io/</id><updated>2016-03-19T00:00:00-03:00</updated><entry><title>Inferencias</title><link href="inferencias.github.io/inferencias.html" rel="alternate"></link><updated>2016-03-19T00:00:00-03:00</updated><author><name>nsm</name></author><id>tag:,2016-03-19:inferencias.github.io/inferencias.html</id><summary type="html">&lt;!--
 Emailusr: nsanmartin
 Emailser: dc.uba.ar
 --&gt;
