@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Inferencias</title><link href="/" rel="alternate"></link><link href="/feeds/logica.atom.xml" rel="self"></link><id>/</id><updated>2016-03-20T00:00:00-03:00</updated><entry><title>Lógica proposicional</title><link href="/logica-proposicional.html" rel="alternate"></link><updated>2016-03-20T00:00:00-03:00</updated><author><name>nsm</name></author><id>tag:,2016-03-20:logica-proposicional.html</id><summary type="html">&lt;!--
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Inferencias</title><link href="http://inferencias.github.io/" rel="alternate"></link><link href="http://inferencias.github.io/feeds/logica.atom.xml" rel="self"></link><id>http://inferencias.github.io/</id><updated>2016-03-20T00:00:00-03:00</updated><entry><title>Lógica proposicional</title><link href="http://inferencias.github.io/logica-proposicional.html" rel="alternate"></link><updated>2016-03-20T00:00:00-03:00</updated><author><name>nsm</name></author><id>tag:inferencias.github.io,2016-03-20:logica-proposicional.html</id><summary type="html">&lt;!--
 Emailusr: nsanmartin
 Emailser: dc.uba.ar
 --&gt;
