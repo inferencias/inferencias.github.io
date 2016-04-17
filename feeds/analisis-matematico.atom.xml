@@ -1,5 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Inferencias</title><link href="http://inferencias.github.io/" rel="alternate"></link><link href="http://inferencias.github.io/feeds/analisis-matematico.atom.xml" rel="self"></link><id>http://inferencias.github.io/</id><updated>2016-03-25T00:00:00-03:00</updated><entry><title>Sucesiones</title><link href="http://inferencias.github.io/sucesiones.html" rel="alternate"></link><updated>2016-03-25T00:00:00-03:00</updated><author><name>nsm</name></author><id>tag:inferencias.github.io,2016-03-25:sucesiones.html</id><summary type="html">&lt;p&gt;Las sucesiones son funciones cuyo dominio son los números naturales y su imagen está  en los reales. En lugar de usar \( f: \mathbb{N} \to \mathbb{R}\) y \(f(n)\) para referirse a la sucesión y a sus términos, se suele escribir en cambio:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Inferencias</title><link href="http://inferencias.github.io/" rel="alternate"></link><link href="http://inferencias.github.io/feeds/analisis-matematico.atom.xml" rel="self"></link><id>http://inferencias.github.io/</id><updated>2016-03-29T00:00:00-03:00</updated><entry><title>Límite de funciones de varias variables</title><link href="http://inferencias.github.io/limite-de-funciones-de-varias-variables.html" rel="alternate"></link><updated>2016-03-29T00:00:00-03:00</updated><author><name>nsm</name></author><id>tag:inferencias.github.io,2016-03-29:limite-de-funciones-de-varias-variables.html</id><summary type="html">&lt;p&gt;En esta entrada repasaremos un poco algunas definiciones y veremos algunos ejemplos.
+Consideraremos funciones de varias variables, es decir \(f: \mathbb{R}^n \to \mathbb{R}\).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;DEFINICIÓN (Límite)&lt;/strong&gt;
+Una función \(f: \mathbb{R}^n \to \mathbb{R}\) tiende al límite \(l \in \mathbb{R}\) cuando \(X\) tiende a \(P \qquad (X, P \in \mathbb{R}^n)\), si:
+ \[(\forall \epsilon &amp;gt; 0) (\exists \delta &amp;gt;0) : \  0 &amp;lt; ||X-P|| &amp;lt; \delta \ \rightarrow \ |f(P) - l| &amp;lt; \epsilon\]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Álgebra de límites&lt;/strong&gt;
+Sean \(f, g: A \to R\text{, } A \subset \mathbb{R}^n\) funciones y sea \(P \in \overline{A}\) (o sea que \(P\) pertenece a la clausura de \(A\). Y supongamos que:&lt;/p&gt;
+&lt;p&gt;\[\lim_{X\to P}f(x) =l_f \in \mathbb{R} \qquad y \qquad \lim_{X\to P}g(x) =l_g \in \mathbb{R}\]&lt;/p&gt;
+&lt;p&gt;Entonces se cumple:&lt;/p&gt;
+&lt;p&gt;\[\text{(1)}\qquad \lim_{X\to P}(f\pm g)(X) = l_f \pm l_g \]
+\[\text{(2)}\qquad \lim_{X\to P}(f \cdot g)(X) = l_f \cdot l_g A\]
+\[\text{(3)} \quad \text{ Si  }l_g \neq 0, \quad \lim_{X\to P}(f\pm g)(X) = \frac{l_f}{l_g} \]&lt;/p&gt;
+&lt;p&gt;Veamos (2).
+Restando y sumando \(f(X)l_g\), obtenemos:
+    \[ |(f \cdot g) (X) - l_f \cdot l_g| = |f(X)g(X) -f(X)l_g+f(X)l_g- l_fl_g|\]&lt;/p&gt;
+&lt;p&gt;Sacando factor común la fórmula:&lt;/p&gt;
+&lt;p&gt;\[ |f(X)g(X) -f(X)l_g+f(X)l_g- l_fl_g| \] 
+equivale a:
+\[(*) \quad |f(X)|\cdot|g(X)-l_g| + |l_g|\cdot|f(X)-l_f| \]&lt;/p&gt;
+&lt;p&gt;Por otra parte, 
+\[|f(X)| \leq |f(X)-l_f|+|l_f|\]&lt;/p&gt;
+&lt;p&gt;O sea que
+\[|f(X)|\cdot|g(X)-l_g| \leq (|f(X)-l_f|+|l_f|)\cdot|g(X)-l_g|\]
+y&lt;/p&gt;
+&lt;p&gt;\[|f(X)|\cdot|g(X)-l_g| \leq |f(X)-l_f|\cdot|g(X)-l_g|  +   |l_f|\cdot|g(X)-l_g|\]&lt;/p&gt;
+&lt;p&gt;De este modo, el primer sumando de \((*)\) está acotado por:
+\[||X-P||^2 + l_f|\cdot|X-P|\]
+y el segundo por
+\[ l_g|\cdot|X-P|\]&lt;/p&gt;
+&lt;p&gt;De este modo, con \(\delta &amp;lt; ||X-P||^2 + l_f|\cdot|X-P| +l_g|\cdot|X-P|\), se cumple
+\[|(F\cdot g)(X) - l_fl_g| &amp;lt; \epsilon\]
+y entonces (2) se cumple.&lt;/p&gt;
+&lt;p&gt;((1) y (3) quedan para el lector).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Observación&lt;/strong&gt;
+Si \(f_i: \mathbb{R}^n\to \mathbb{R}\) es la función que asigna a cada vector de \(\mathbb{R}^n\) con su \(i\)-ésima coordenada, es decir:
+\[f_i(x_1, \dots, x_i, \dots, x_n) = x_i\]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;entonces, si \(P=(p_1, \dots, p_n)\) se cumple:&lt;/p&gt;
+&lt;p&gt;\[ \lim_{X\to P} x_j = p_j\]&lt;/p&gt;
+&lt;p&gt;lo cual se sigue de que 
+\[ |x_i - p_i| \leq ||X-P||\]&lt;/p&gt;
+&lt;p&gt;Cuando se estudia el límite de una función en \(P\), a veces resulta útil componer con una o más curvas, es decir con una funciones \(\alpha_k: \mathbb{R} \to \mathbb{R}^n\) y ver qué ocurre con \(f\circ\alpha_k\)cuando \(\alpha_k \to P\). Si encontramos distintas curvas para las cuales su composición con \(f\) cuando tienden a \(P\) tienen distintos límites, entonces podemo afirmas que el límite de \(f\) no existe.&lt;/p&gt;
+&lt;p&gt;Otra observación útil es la siguiente. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Observación&lt;/strong&gt;
+Si tenemos por ejemplo una función \(f:\mathbb{R}^2\to \mathbb{R}\) y queremos ver su límite cuando \((x,y) \to (a,b)\). Supongamos además que podemos mostrar que:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;\[\lim_{x\to a} \lim_{y\to b} f(x,y) = l_1\]
+y que:
+\[\lim_{y\to b} \lim_{x\to a} f(x,y) = l_2\]&lt;/p&gt;
+&lt;p&gt;Si ocurre que \(l_1 \neq l_2\), entonces &lt;strong&gt;no existe el límite&lt;/strong&gt;. (Ojo que no vale la recíproca).&lt;/p&gt;</summary></entry><entry><title>Sucesiones</title><link href="http://inferencias.github.io/sucesiones.html" rel="alternate"></link><updated>2016-03-25T00:00:00-03:00</updated><author><name>nsm</name></author><id>tag:inferencias.github.io,2016-03-25:sucesiones.html</id><summary type="html">&lt;p&gt;Las sucesiones son funciones cuyo dominio son los números naturales y su imagen está  en los reales. En lugar de usar \( f: \mathbb{N} \to \mathbb{R}\) y \(f(n)\) para referirse a la sucesión y a sus términos, se suele escribir en cambio:&lt;/p&gt;
 &lt;p&gt;\[ \{a_n\}_{n\in\mathbb{N}} \]&lt;/p&gt;
 &lt;p&gt;para denotar una sucesión y&lt;/p&gt;
 &lt;p&gt;\[ a_i \]&lt;/p&gt;
@@ -48,7 +101,7 @@ Como es acotada superiormente existe algún número que es mayor o igual a todos
 Dada una sucesión \(\{a_k\}\) y una función estrictamente creciente \(n: \mathbb{N} \to \mathbb{N}\), se llama subsucesiónde \({a_n}\) a la composición \(a \circ n\).&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;En lugar de \(n(k)\) se suele escribir \(n_k\) y a la subsucesión se la escribe:&lt;/p&gt;
-&lt;p&gt;\[\{a_{n_k}\}_k\]&lt;/p&gt;
+&lt;p&gt;\[\{a_{n_k}\}\]&lt;/p&gt;
 &lt;p&gt;donde el \(k\)-ésimo término de la subsucesión es el mismo que el \(n_k\)-ésimo término de \({a_n}\).&lt;/p&gt;
 &lt;p&gt;Ahora que definimos subsucesiones podemos ver la prueba del siguiente teorema conocido como teorema de Bolzano-weierstrass:&lt;/p&gt;
 &lt;p&gt;TEOREMA (BOLZANO-WEIERSTRASS)
