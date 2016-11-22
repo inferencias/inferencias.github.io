@@ -5,6 +5,6 @@ idx_link="Volver al [index](../index.html)"
 for p in "$@"
 do
     echo Exportando "$p" como ../../${PWD##*/}/"${p/.md/}".html
-    { printf "%s\n\n" $idx_link ; cat "$p" ; } | pandoc -s --webtex -o ../../${PWD##*/}/"${p/.md/}".html
+    { printf "%s\n\n" "$idx_link" ; cat "$p" ; } | pandoc -s --webtex -o ../../${PWD##*/}/"${p/.md/}".html
 done
 
