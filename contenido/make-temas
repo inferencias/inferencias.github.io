@@ -2,8 +2,7 @@
 
 BASEDIR="."
 
-printf "[index](./index.html)\n\n"
-printf "## Temas\n\n"
+printf "\n## Temas\n\n"
 
 
 for d in $(ls -d */)
