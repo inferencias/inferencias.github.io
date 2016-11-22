@@ -1,6 +1,6 @@
 #!/bin/bash
 
-idx_link="[index](../index.html)"
+idx_link="Volver al [index](../index.html)"
 
 for p in "$@"
 do
