@@ -1,7 +1,7 @@
 Una vez que se modifica el contenido se puede actualizar la pagina con
 
-# Agrego a la lista de temas
-. make-temas > temas.md && . pandoc-inf temas
+# Actualizo el index
+. make-index 
 
 # agrego el contenido nuevo
 cd tema/

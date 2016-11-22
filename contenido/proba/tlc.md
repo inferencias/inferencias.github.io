@@ -4,7 +4,8 @@
 Sea $N( \mu , \sigma^2)$ la densidad normal, definida como
 
 $$
-f_{\mu, \sigma^2}(x) = \frac{1}{\sigma\sqrt{2 \pi}} e^{-\frac{(x- \mu)^2}{2 \sigma^2}}
+f_{\mu, \sigma^2}(x) = \frac{1}{\sigma\sqrt{2 \pi}}
+e^{-\frac{(x- \mu)^2}{2 \sigma^2}}
 $$
 
 y sean $X_1, \dots, X_n$  v.a. iid.

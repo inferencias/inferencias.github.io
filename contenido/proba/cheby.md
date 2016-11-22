@@ -3,7 +3,8 @@
 Caso contínuo.
 
 Prop.
-Sea $X$ una v.a. contínua con $E(X) = \mu$ y $V(X) = \sigma^2 < \infty$.
+Sea $X$ una v.a. contínua con $E(X) = \mu$
+y $V(X) = \sigma^2 < \infty$.
 
 Entonces se cumple:
 $$
