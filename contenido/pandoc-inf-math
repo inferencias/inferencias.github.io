@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for p in "$@"
+do
+    echo Exportando "$p" como ../"${p/.md/}".html
+    pandoc "$p" -s --webtex -o ../"${p/.md/}".html
+done
+

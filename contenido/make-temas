@@ -1,0 +1,24 @@
+#!/bin/bash
+
+BASEDIR="."
+
+printf "[index](./index.html)\n\n"
+printf "## Temas\n\n"
+
+
+for d in $(ls -d */)
+do
+    if [ "$(ls $d)" ]
+    then
+	printf "%s\n\n" ${d/\//}
+
+	for md in $(ls "$d"*.md)
+	do
+	    f=${md/*\//}
+	    fn=${f/.md/}
+
+	    link_title=$(head -1 $md | sed "s/## //")
+	    printf "* [%s](%s)\n" "${link_title}" $BASEDIR/$d$fn.html
+	done
+    fi
+done

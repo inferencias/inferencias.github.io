@@ -1,0 +1,11 @@
+Una vez que se modifica el contenido se puede actualizar la pagina con
+
+# Agrego a la lista de temas
+. make-temas > temas.md && . pandoc-inf temas
+
+# agrego el contenido nuevo
+cd tema/
+. pandoc-inf-math nuevo-contenido.md
+
+
+

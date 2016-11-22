@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<p><a href="../index.html">index</a></p>
+<h2 id="teorema-central-del-límite">Teorema central del límite</h2>
+<p>Sea <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?N%28%20%5Cmu%20%2C%20%5Csigma%5E2%29" alt="N( \mu , \sigma^2)" title="N( \mu , \sigma^2)" /> la densidad normal, definida como</p>
+<p><br /><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%0Af_%7B%5Cmu%2C%20%5Csigma%5E2%7D%28x%29%20%3D%20%5Cfrac%7B1%7D%7B%5Csigma%5Csqrt%7B2%20%5Cpi%7D%7D%20e%5E%7B-%5Cfrac%7B%28x-%20%5Cmu%29%5E2%7D%7B2%20%5Csigma%5E2%7D%7D%0A" alt="
+f_{\mu, \sigma^2}(x) = \frac{1}{\sigma\sqrt{2 \pi}} e^{-\frac{(x- \mu)^2}{2 \sigma^2}}
+" title="
+f_{\mu, \sigma^2}(x) = \frac{1}{\sigma\sqrt{2 \pi}} e^{-\frac{(x- \mu)^2}{2 \sigma^2}}
+" /><br /></p>
+<p>y sean <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?X_1%2C%20%5Cdots%2C%20X_n" alt="X_1, \dots, X_n" title="X_1, \dots, X_n" /> v.a. iid.</p>
+<p>Entonces se cumple que:</p>
+<p><br /><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%0A%5Clim_%7Bn%20%5Cto%20%5Cinfty%20%7D%0AP%20%5Cleft%28%0A%20%20%20%20%5Cfrac%7B%5Csum_%7Bi%3D1%7D%5En%20X_i%20-%20nE%28X%29%7D%0A%20%20%20%20%20%20%20%20%20%7B%5Csqrt%7BnV%28X%29%7D%7D%0A%20%20%20%20%3C%20x%20%5Cright%29%20%20%3D%20%5CPhi%28x%29%0A" alt="
+\lim_{n \to \infty }
+P \left(
+    \frac{\sum_{i=1}^n X_i - nE(X)}
+         {\sqrt{nV(X)}}
+    &lt; x \right)  = \Phi(x)
+" title="
+\lim_{n \to \infty }
+P \left(
+    \frac{\sum_{i=1}^n X_i - nE(X)}
+         {\sqrt{nV(X)}}
+    &lt; x \right)  = \Phi(x)
+" /><br /></p>
+<p>donde <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5CPhi%20%28x%29" alt="\Phi (x)" title="\Phi (x)" /> es la acumulada de <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?f_%7B%5Cmu%2C%20%5Csigma%5E2%20%7D" alt="f_{\mu, \sigma^2 }" title="f_{\mu, \sigma^2 }" />, es decir</p>
+<p><br /><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%0A%5Cint_%7B-%5Cinfty%7D%5Ex%20f_%7B%5Cmu%2C%20%5Csigma%5E2%20%7D%20%28t%29%20%5C%20dt%0A" alt="
+\int_{-\infty}^x f_{\mu, \sigma^2 } (t) \ dt
+" title="
+\int_{-\infty}^x f_{\mu, \sigma^2 } (t) \ dt
+" /><br /></p>
+</body>
+</html>
