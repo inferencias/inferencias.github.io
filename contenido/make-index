@@ -1,3 +1,3 @@
 #!/bin/bash
 
- { cat index.md ; . make-temas ; } | pandoc -s > ../index.html
+ { cat index.md ; . temas.sh ; } | pandoc -s > ../index.html

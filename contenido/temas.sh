@@ -9,7 +9,8 @@ for d in $(ls -d */)
 do
     if [ "$(ls $d)" ]
     then
-	printf "%s\n\n" ${d/\//}
+	title=$(head "$d"title)
+	printf "\n%s\n\n" "$title"
 
 	for md in $(ls "$d"*.md)
 	do
