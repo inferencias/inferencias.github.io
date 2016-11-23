@@ -9,15 +9,12 @@ $$
 
 ### Demostración
 
-Caso contínuo.
-
-Si $f$ es la densidad de $X$, entonces
+Caso contínuo. Si $f$ es la densidad de $X$, entonces
 
 $$
 \mathbf{E}(X^2) = \int_{-\infty}^{+\infty} x^2 f(x) \ dx
 $$
 
-Como $t > 0$
 
 $$
 \int_{-\infty}^{+\infty} x^2 f(x) \ dx
@@ -28,6 +25,9 @@ $$
 $$
  = t^2 \int_{t}^{+\infty} f(x) \ dx = t^2 P(x \geq t).
 $$
+
+Y dividiendo por $t^2$ obtenemos la proposición buscada.
+
 
 Para el caso discreto la demostración es similar, pero reemplazando \
 el símbolo de la integral por el de la sumatoria y la densidad por la\

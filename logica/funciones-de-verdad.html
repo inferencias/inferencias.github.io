@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<p>Volver al <a href="../index.html">inicio</a></p>
+<h2 id="funciones-de-verdad">Funciones de verdad</h2>
+<p>Sea <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BT%7D%20%3D%20%5C%7BV%2C%20F%5C%7D" alt="\mathcal{T} = \{V, F\}" title="\mathcal{T} = \{V, F\}" /> el conjunto de los valores de verdad <em>verdadero</em> y <em>falso</em>.</p>
+<h3 id="definición">Definición</h3>
+<p>Una función <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?f%3A%20%5Cmathcal%7BT%7D%5En%20%5Cto%20%5Cmathcal%7BT%7D" alt="f: \mathcal{T}^n \to \mathcal{T}" title="f: \mathcal{T}^n \to \mathcal{T}" /> es una <strong>función de verdad</strong>.</p>
+<h4 id="ejemplo-1-negacion.">Ejemplo 1 (negacion).</h4>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?f_N%20%3A%20%5C%7BV%2CF%5C%7D%20%5Cto%20%5C%7BV%2CF%5C%7D" alt="f_N : \{V,F\} \to \{V,F\}" title="f_N : \{V,F\} \to \{V,F\}" /> tal que <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?f_N%28p%29%20%3D%20%5Cbegin%7Bcases%7D%20V%2C%20%5Ctext%7B%20si%20%7D%20p%20%3D%20F%3B%5C%5C%20F%2C%20%5Ctext%7B%20si%20%7D%20p%20%3D%20V.%5C%5C%20%5Cend%7Bcases%7D" alt="f_N(p) = \begin{cases} V, \text{ si } p = F;\\ F, \text{ si } p = V.\\ \end{cases}" title="f_N(p) = \begin{cases} V, \text{ si } p = F;\\ F, \text{ si } p = V.\\ \end{cases}" /></p>
+<p>es la función que se llama <em>negación</em> que se suele escribir <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?f_N%28p%29%20%3D%20%5Cneg%20p" alt="f_N(p) = \neg p" title="f_N(p) = \neg p" /></p>
+<h4 id="ejemplo-2-conjunción.">Ejemplo 2 (conjunción).</h4>
+<p>Sea <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?f_K%3A%20%5C%7BV%2CF%5C%7D%5E2%20%5Cto%20%5C%7BF%2CV%5C%7D" alt="f_K: \{V,F\}^2 \to \{F,V\}" title="f_K: \{V,F\}^2 \to \{F,V\}" /> tal que</p>
+<p><br /><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%20f_K%28p%2Cq%29%20%3D%20%5Cbegin%7Bcases%7D%20V%2C%20%5Ctext%7B%20si%20%7D%20p%20%3D%20q%3B%5C%5C%20F%2C%20%5Ctext%7B%20en%0Aotro%20caso.%7D%5C%5C%20%5Cend%7Bcases%7D%0A" alt=" f_K(p,q) = \begin{cases} V, \text{ si } p = q;\\ F, \text{ en
+otro caso.}\\ \end{cases}
+" title=" f_K(p,q) = \begin{cases} V, \text{ si } p = q;\\ F, \text{ en
+otro caso.}\\ \end{cases}
+" /><br /></p>
+<p>Esta función se llama conjunción y se escribe por lo general <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?f_K%28p%2Cq%29%20%3D%20p%20%5Cwedge%20q" alt="f_K(p,q) = p \wedge q" title="f_K(p,q) = p \wedge q" /></p>
+<h4 id="ejemplo-3-tautología">Ejemplo 3 (tautología)</h4>
+<p>Una <strong>tautología</strong> es una función de verdad</p>
+<p><br /><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?f%3A%5C%7BV%2CF%5C%7D%5En%5Cto%5C%7BV%2CF%5C%7D" alt="f:\{V,F\}^n\to\{V,F\}" title="f:\{V,F\}^n\to\{V,F\}" /><br /></p>
+<p>tal que para todo valor de <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?p%20%3D%20%28p_1%2C%20p_2%2C%20%5Cdots%2C%20p_n%29" alt="p = (p_1, p_2, \dots, p_n)" title="p = (p_1, p_2, \dots, p_n)" />, se cumple que <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?f%28%20p%29%20%3D%20V" alt="f( p) = V" title="f( p) = V" /></p>
+<p>La función <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cneg%20%28p%20%5Cwedge%20%5Cneg%20p%29" alt="\neg (p \wedge \neg p)" title="\neg (p \wedge \neg p)" /> es una tautología.</p>
+<p>Usualmente se utilizan las llamadas <em>tablas de verdad</em> para representar dichas funciones. En estas tablas se muestran tres columnas, una con la primer variable, otra con las segundo (otra con la tercera, etc. ...) y otra con la función, mientras que en las filas los valores de verdad asignados (todas las <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?2%5En" alt="2^n" title="2^n" /> combinaciones y el valor que la función asigna a cada combinación).</p>
+</body>
+</html>
