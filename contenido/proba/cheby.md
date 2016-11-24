@@ -1,10 +1,10 @@
 ## Desigualdad de Chebyshev
 
-Sea $X$ una v.a. Si $\mathbf{E}(X^2)$ existe entonces se cumple:
+Sea $X$ una v.a. Si $\mathbf{E}[X^2]$ existe entonces se cumple:
 
 $$
 \forall t > 0 \qquad P( |X| \geq t )
-    \leq \frac{\mathbf{E}(X^2)}{t^2}
+    \leq \frac{\mathbf{E}[X^2]}{t^2}
 $$
 
 ### Demostración
@@ -12,7 +12,7 @@ $$
 Caso contínuo. Si $f$ es la densidad de $X$, entonces
 
 $$
-\mathbf{E}(X^2) = \int_{-\infty}^{+\infty} x^2 f(x) \ dx
+\mathbf{E}[X^2] = \int_{-\infty}^{+\infty} x^2 f(x) \ dx
 $$
 
 
@@ -36,7 +36,7 @@ función de probabilidad puntual.
 <br/>
 Como __corolario__ se sigue la siguiente proposición:
 
-Sea $X$ una v.a. con $\mathbf{E}(X) = \mu$ y $V(X) = \sigma^2 < +\infty$.
+Sea $X$ una v.a. con $\mathbf{E}[X] = \mu$ y $V(X) = \sigma^2 < +\infty$.
 
 Entonces:
 $$
