@@ -1,9 +1,5 @@
 #!/bin/bash
 
-## todo:
-## convendria hacer esto con una funcion recursiva o
-## algo similar
-
 BASEDIR="."
 
 printf "\n## Temas\n\n"
@@ -24,6 +20,5 @@ do
 	    link_title=$(head -1 $md | sed "s/## //")
 	    printf "* [%s](%s)\n" "${link_title}" $BASEDIR/$d$fn.html
 	done
-		
     fi
 done
