@@ -1,12 +1,14 @@
 #!/bin/bash
 
-idx_link="Volver al [inicio](../index.html)"
+if [ -z $( type -t echo_index_path ) ]; then . funcs.sh ; fi
 
+idx_link=$( echo_index_path )
+echo $idx_link
 for p in "$@"
 do
     echo Exportando "$p" como ${PWD/contenido\//}/"${p/.md/}".html
     
-        { printf "%s\n\n" "$idx_link" ; cat "$p" ; } \
+        { printf "%s\n\n" ${idx_link} ; cat "$p" ; } \
 	| pandoc -s --webtex -o ${PWD/contenido\//}/"${p/.md/}".html
 done
 
