@@ -3,12 +3,15 @@
 if [ -z $( type -t echo_index_path ) ]; then . funcs.sh ; fi
 
 idx_link=$( echo_index_path )
-echo $idx_link
+
+#echo $idx_link
+
 for p in "$@"
 do
-    echo Exportando "$p" como ${PWD/contenido\//}/"${p/.md/}".html
-    
-        { printf "%s\n\n" ${idx_link} ; cat "$p" ; } \
-	| pandoc -s --webtex -o ${PWD/contenido\//}/"${p/.md/}".html
+    echo Exportando "$p" como "${PWD/contenido\//}/"${p/.md/}".html"
+
+    touch ${PWD/contenido\//}/"${p/.md/}".html
+    { printf "%s\n\n" "${idx_link}" ; cat "$p" ; } \
+	| pandoc -s --webtex > "${PWD/contenido\//}/"${p/.md/}".html"
 done
 
